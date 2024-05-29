@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 운세</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>오늘의 운세는?</h1>
+    <label for="name">이름을 입력하세요: </label>
+    <input type="text" id="name" name="name">
+    <button onclick="getFortune()">운세 점치기</button>
+    <p id="fortune"></p>
+    <img id="fortuneImage" src="" style="display: none;">
+    <script>
+        function getFortune() {
+            var name = document.getElementById('name').value;
+            var fortunes = [
+                {
+                    text: "행복한 하루가 될 거예요.",
+                    image: "happy.jpg"
+                },
+                {
+                    text: "새로운 기회가 찾아올 거예요.",
+                    image: "opportunity.jpg"
+                },
+                {
+                    text: "건강에 유의하세요.",
+                    image: "health.jpg"
+                },
+                {
+                    text: "오늘은 좋은 일이 생길 거예요.",
+                    image: "good_day.jpg"
+                },
+                {
+                    text: "약간의 어려움을 만나겠지만, 극복할 수 있을 거예요.",
+                    image: "challenge.jpg"
+                },
+                {
+                    text: "집밖에서 나오지마세요, 오늘 위험 피크임",
+                    image: "danger.jpg"
+                },
+                {
+                    text: "차 조심하세요",
+                    image: "car.jpg"
+                },
+                {
+                    text: "사람 조심하세요",
+                    image: "people.jpg"
+                },
+                {
+                    text: "오늘 당신은 행운의 여신~~~",
+                    image: "luck.jpg"
+                },
+                {
+                    text: "오늘 귀인이 찾아올 것 입니다.",
+                    image: "noble.webp"
+                },
+                {
+                    text: "기분좋은 일이 생길 것 같네요.",
+                    image: "good_mood.jpg"
+                },
+                {
+                    text: "아 집가고싶다.(이거 발견한 사람은 행운 max임)",
+                    image: "home.png"
+                }
+            ];
+            var randomIndex = Math.floor(Math.random() * fortunes.length);
+            var fortune = fortunes[randomIndex];
+            document.getElementById('fortune').textContent = name + "님의 오늘의 운세는 '" + fortune.text + "' 입니다.";
+            document.getElementById('fortuneImage').src = fortune.image;
+            document.getElementById('fortuneImage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
